@@ -24,11 +24,11 @@ theme_path = "/usr/share/awesome/themes/default/theme.lua"
 
 -- Actually load theme
 beautiful.init(theme_path)
-awful.util.spawn("awsetbg '/usr/share/backgrounds/Photography/Blue\ Mountains.jpg' &")
+awful.util.spawn("nitrogen --restore")
 
 -- This is used later as the default terminal and editor to run.
 browser = "firefox"
-mail = "thunderbird"
+mail = "icedove"
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
@@ -413,10 +413,13 @@ client.add_signal("unfocus", function(c)
     end
 end)
 
-awful.util.spawn("xset b off")
+awful.util.spawn("xset b off &")
 awful.util.spawn("nm-applet &")
 awful.util.spawn("xfce4-power-manager")
-awful.util.spawn("startvolumed")
-awful.util.spawn("xbindkeys")
-awful.util.spawn("startxcompmgr")
-awful.util.spawn("dropbox start")
+awful.util.spawn("xfce4-volumed")
+awful.util.spawn("pnmixer &")
+awful.util.spawn("thunar --daemon")
+awful.util.spawn("xscreensaver -no-splash &")
+-- awful.util.spawn("xbindkeys")
+-- awful.util.spawn("startxcompmgr")
+awful.util.spawn("dropbox start &")
